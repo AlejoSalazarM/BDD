@@ -1,0 +1,22 @@
+name: Borrar archivo TXT
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Borrar archivo TXT
+        run: |
+          rm archivo.txt
+      - name: Confirmar cambios
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git add archivo.txt
+          git commit -m "Borrar archivo TXT"
+          git push
