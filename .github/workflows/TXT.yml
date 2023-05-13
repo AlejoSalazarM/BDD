@@ -1,0 +1,29 @@
+name: archivos_TXT
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  file-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create file
+        run: |
+          echo "Contenido del archivo" > archivo.txt
+
+      # Si deseas borrar el archivo, puedes agregar los siguientes pasos después de crearlo
+      # - name: Delete file
+      #   run: rm archivo.txt
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Actualizar archivo.txt"
+          commit_user_name: "alejosalazarm"
+          commit_user_email: "esalazarm@ucentral.edu.co"
