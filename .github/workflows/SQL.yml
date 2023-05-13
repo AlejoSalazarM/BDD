@@ -15,14 +15,14 @@ jobs:
         with:
           mysql-version: '8.0'
           mysql-host: ${{ secrets.cualquiera123456.000webhostapp.com}}
-          mysql-port: ${{ secrets.MYSQL_PORT }}
+          mysql-port: ${{ secrets.3306 }}
           mysql-user: ${{ secrets.prueba123456 }}
           mysql-password: ${{ secrets.Conprueba1* }}
 
       - name: Create and populate table
         run: |
-          mysql -h ${{ secrets.cualquiera123456.000webhostapp.com }} -P ${{ secrets.MYSQL_PORT }} -u ${{ secrets.prueba123456 }} -p"${{ secrets.Conprueba1* }}" -e "CREATE TABLE IF NOT EXISTS mytable (id INT AUTO_INCREMENT PRIMARY KEY, field1 VARCHAR(255), field2 VARCHAR(255), field3 VARCHAR(255));"
+          mysql -h ${{ secrets.cualquiera123456.000webhostapp.com }} -P ${{ secrets.3306 }} -u ${{ secrets.prueba123456 }} -p"${{ secrets.Conprueba1* }}" -e "CREATE TABLE IF NOT EXISTS mytable (id INT AUTO_INCREMENT PRIMARY KEY, field1 VARCHAR(255), field2 VARCHAR(255), field3 VARCHAR(255));"
 
       - name: Insert records
         run: |
-          mysql -h ${{ secrets.cualquiera123456.000webhostapp.com }} -P ${{ secrets.MYSQL_PORT }} -u ${{ secrets.prueba123456 }} -p"${{ secrets.Conprueba1* }}" -D prueba -e "INSERT INTO mytable (field1, field2, field3) VALUES ('Value 1', 'Value 2', 'Value 3'), ('Value 4', 'Value 5', 'Value 6'), ('Value 7', 'Value 8', 'Value 9'), ('Value 10', 'Value 11', 'Value 12'), ('Value 13', 'Value 14', 'Value 15'), ('Value 16', 'Value 17', 'Value 18'), ('Value 19', 'Value 20', 'Value 21'), ('Value 22', 'Value 23', 'Value 24'), ('Value 25', 'Value 26', 'Value 27'), ('Value 28', 'Value 29', 'Value 30');"
+          mysql -h ${{ secrets.cualquiera123456.000webhostapp.com }} -P ${{ secrets.3306 }} -u ${{ secrets.prueba123456 }} -p"${{ secrets.Conprueba1* }}" -D prueba -e "INSERT INTO mytable (field1, field2, field3) VALUES ('Value 1', 'Value 2', 'Value 3'), ('Value 4', 'Value 5', 'Value 6'), ('Value 7', 'Value 8', 'Value 9'), ('Value 10', 'Value 11', 'Value 12'), ('Value 13', 'Value 14', 'Value 15'), ('Value 16', 'Value 17', 'Value 18'), ('Value 19', 'Value 20', 'Value 21'), ('Value 22', 'Value 23', 'Value 24'), ('Value 25', 'Value 26', 'Value 27'), ('Value 28', 'Value 29', 'Value 30');"
